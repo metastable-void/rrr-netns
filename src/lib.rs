@@ -103,6 +103,7 @@ pub fn netns_id_get_current() -> libc::ino_t {
     assert_eq!(major, 0, "Major device number should be 0");
     assert_eq!(minor, 4, "Minor device number should be 4");
 
+    last_err_set(ErrorCode::NoError);
     statbuf.st_ino
 }
 
@@ -176,6 +177,7 @@ pub fn netns_saved_delete(name: &CStr) -> c_int {
         return -1;
     }
 
+    last_err_set(ErrorCode::NoError);
     0
 }
 
@@ -207,6 +209,7 @@ pub fn netns_saved_get(name: &CStr) -> libc::ino_t {
         return 0;
     }
 
+    last_err_set(ErrorCode::NoError);
     statbuf.st_ino
 }
 
@@ -234,6 +237,7 @@ pub fn netns_savepoint_destroy(savepoint: &NetnsSavepoint) {
     }
 
     unsafe { libc::close(savepoint.fd) };
+    last_err_set(ErrorCode::NoError);
 }
 
 /// Restores a netns from the savepoint
@@ -250,6 +254,7 @@ pub fn netns_savepoint_restore(savepoint: &NetnsSavepoint) -> c_int {
         return -1;
     }
 
+    last_err_set(ErrorCode::NoError);
     0
 }
 
