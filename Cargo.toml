@@ -1,0 +1,15 @@
+[package]
+name = "rrr-netns"
+version = "0.1.0"
+edition = "2024"
+
+authors = ["metastable-void"]
+description = "Utilities for managing Network Namespaces in Linux."
+license = "Apache-2.0 OR MPL-2.0"
+readme = "README.md"
+repository = "https://github.com/metastable-void/rrr-netns"
+homepage = "https://github.com/metastable-void/rrr-netns"
+
+[dependencies]
+libc = "0.2"
+log = "0.4"
